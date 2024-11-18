@@ -1,12 +1,15 @@
-def main() :
-    with open("books/frankenstein.txt") as f:
-        file_contents = f.read()
+def main():
+    bookPath = "books/frankenstein.txt"
+    text = getBookText(bookPath)
+    wordCount = countWords(text)
+    print(f"The Frankenstein book contains {wordCount} words!")
+
+def getBookText(path):
+    with open(path) as f:
+        return f.read()
         
-        def countWords() :
-            wordsArray = file_contents.split()
-            words = wordsArray.__len__()
-            print("The Frankenstein book contains " + str(words) + " words!")
-        
-        countWords()
+def countWords(text):
+    wordsArray = text.split()
+    return len(wordsArray)
 
 main()
