@@ -4,14 +4,23 @@ def main():
     word_count = count_words(text)
 
     character_count = char_dictionary(text)
-    letter_count = [character_count]
+    letter_count = get_letter_count(character_count)
 
-    print("--- Begin report of books/frankenstein.txt ---")
+    print(f"--- Begin report of {book_path} ---")
     print(f"{word_count} found in the document\n")
+    
     for letter in letter_count:
         if letter.isalpha():
             number = letter_count[letter]
             print(f"The {letter} was found {number} times in the document")
+
+def sort_on(d):
+    return d["num"]
+
+def get_letter_count(char_dict):
+    new_char_dict = {}
+    for ch in char_dict:
+        new_char_dict.append(char_dict[ch])
 
 def get_book_text(path):
     with open(path) as f:
